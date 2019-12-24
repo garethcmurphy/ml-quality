@@ -14,8 +14,8 @@ from sklearn.model_selection import train_test_split
 
 def main():
     """main"""
-    URL = 'https://storage.googleapis.com/applied-dl/heart.csv'
-    dataframe = pd.read_csv(URL)
+    url = 'https://storage.googleapis.com/applied-dl/heart.csv'
+    dataframe = pd.read_csv(url)
     dataframe.head()
 
     train, test = train_test_split(dataframe, test_size=0.2)
@@ -110,17 +110,18 @@ def df_to_dataset(dataframe, shuffle=True, batch_size=32):
     """df to dataset"""
     dataframe = dataframe.copy()
     labels = dataframe.pop('target')
-    ds = tf.data.Dataset.from_tensor_slices((dict(dataframe), labels))
+    dataset = tf.data.Dataset.from_tensor_slices((dict(dataframe), labels))
     if shuffle:
-        ds = ds.shuffle(buffer_size=len(dataframe))
-    ds = ds.batch(batch_size)
-    return ds
+        dataset = dataset.shuffle(buffer_size=len(dataframe))
+    dataset = dataset.batch(batch_size)
+    return dataset
 
 # A utility method to create a feature column
 # and to transform a batch of data
 
 
 def demo(feature_column, example_batch):
+    """demo feature layer"""
     feature_layer = layers.DenseFeatures(feature_column)
     print(feature_layer(example_batch).numpy())
 
