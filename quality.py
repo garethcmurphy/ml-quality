@@ -103,6 +103,8 @@ def main():
               validation_data=val_ds,
               epochs=5)
 
+    loss, accuracy = model.evaluate(test_ds)
+    print("Accuracy", accuracy)
 
 def df_to_dataset(dataframe, shuffle=True, batch_size=32):
     """df to dataset"""
