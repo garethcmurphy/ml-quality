@@ -13,7 +13,7 @@ class Data():
     def generate(self):
         """generate data"""
         with open(self.file_name, "a") as file:
-            for _ in range(1, 10):
+            for _ in range(1, 1000):
                 pid = random.randint(1e5, 9e5)
                 hindex = random.randint(0, 100)
                 data_type = random.choice(['test', 'production'])
