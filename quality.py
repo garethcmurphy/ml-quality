@@ -2,7 +2,6 @@
 """test ml"""
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import numpy as np
 import pandas as pd
 
 import tensorflow as tf
@@ -103,7 +102,7 @@ def main():
               validation_data=val_ds,
               epochs=5)
 
-    loss, accuracy = model.evaluate(test_ds)
+    _, accuracy = model.evaluate(test_ds)
     print("Accuracy", accuracy)
 
 def df_to_dataset(dataframe, shuffle=True, batch_size=32):
@@ -120,9 +119,9 @@ def df_to_dataset(dataframe, shuffle=True, batch_size=32):
 # and to transform a batch of data
 
 
-def demo(feature_column, example_batch):
+def demo(feature_column1, example_batch):
     """demo feature layer"""
-    feature_layer = layers.DenseFeatures(feature_column)
+    feature_layer = layers.DenseFeatures(feature_column1)
     print(feature_layer(example_batch).numpy())
 
 
