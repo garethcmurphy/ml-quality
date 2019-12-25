@@ -21,6 +21,7 @@ class Data():
 
 
 def main():
+    """main"""
     data = Data()
     data.generate()
 
