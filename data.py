@@ -2,20 +2,22 @@
 """generate data"""
 import random
 
+
 class Data():
+    file_name = "./data.csv"
     """generate data"""
+
     def __init__(self):
         pass
 
     def generate(self):
         """generate data"""
-        for i in range(1, 10):
-            pid = random.randint( 1e5, 9e5)
-            hindex = random.randint(0, 100)
-            data_type =  random.choice( ['test', 'production'] )
-
-            print("{}, {}, {}".format(pid, hindex, data_type))
-
+        with open(self.file_name, "a") as file:
+            for _ in range(1, 10):
+                pid = random.randint(1e5, 9e5)
+                hindex = random.randint(0, 100)
+                data_type = random.choice(['test', 'production'])
+                print("{}, {}, {}".format(pid, hindex, data_type), file=file)
 
 
 def main():
