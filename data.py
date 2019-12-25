@@ -18,7 +18,9 @@ class Data():
                 pid = random.randint(1e5, 9e5)
                 hindex = random.randint(0, 100)
                 data_type = random.choice(['test', 'production'])
-                target = random.randint(0, 1)
+                target = 0
+                if data_type == 'production' and hindex > 20:
+                    target = 1
                 print("{},{},{},{}".format(pid, hindex, data_type, target), file=file)
 
 
