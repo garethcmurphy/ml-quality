@@ -4,8 +4,8 @@ import random
 
 
 class Data():
-    file_name = "./data.csv"
     """generate data"""
+    file_name = "./data.csv"
 
     def __init__(self):
         pass
