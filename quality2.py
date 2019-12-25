@@ -33,7 +33,6 @@ def main():
         print('A batch of targets:', label_batch)
 
     # We will use this batch to demonstrate several types of feature columns
-    example_batch = next(iter(train_ds))[0]
 
 
 
@@ -49,18 +48,18 @@ def main():
     # bucketized cols
     hindex = feature_column.numeric_column("hindex")
     age_buckets = feature_column.bucketized_column(
-        hindex, boundaries=[10, 20, 30, 40, 50, 60, 70, 80, 90])
+        hindex, boundaries=[10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
     feature_columns.append(age_buckets)
 
     # indicator cols
-    thal = feature_column.categorical_column_with_vocabulary_list(
+    data_type = feature_column.categorical_column_with_vocabulary_list(
         'data_type', ['test', 'production'])
-    thal_one_hot = feature_column.indicator_column(thal)
-    feature_columns.append(thal_one_hot)
+    data_type_one_hot = feature_column.indicator_column(data_type)
+    feature_columns.append(data_type_one_hot)
 
     # embedding cols
-    thal_embedding = feature_column.embedding_column(thal, dimension=8)
-    feature_columns.append(thal_embedding)
+    #data_type_embedding = feature_column.embedding_column(data_type, dimension=8)
+    #feature_columns.append(data_type_embedding)
 
     feature_layer = tf.keras.layers.DenseFeatures(feature_columns)
 
