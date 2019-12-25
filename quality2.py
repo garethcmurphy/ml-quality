@@ -36,9 +36,6 @@ def main():
     example_batch = next(iter(train_ds))[0]
 
 
-    age_buckets = feature_column.bucketized_column(
-        hindex, boundaries=[10, 20, 30, 40, 50, 60, 70, 80, 90])
-    demo(age_buckets, example_batch)
 
 
 
@@ -46,13 +43,13 @@ def main():
     feature_columns = []
 
     # numeric cols
-    for header in ['age', 'trestbps', 'chol', 'thalach', 'oldpeak', 'slope', 'ca']:
+    for header in ['pid', 'hindex']:
         feature_columns.append(feature_column.numeric_column(header))
 
     # bucketized cols
     hindex = feature_column.numeric_column("hindex")
     age_buckets = feature_column.bucketized_column(
-        hindex, boundaries=[18, 25, 30, 35, 40, 45, 50, 55, 60, 65])
+        hindex, boundaries=[10, 20, 30, 40, 50, 60, 70, 80, 90])
     feature_columns.append(age_buckets)
 
     # indicator cols
