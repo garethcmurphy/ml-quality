@@ -27,7 +27,8 @@ class Data():
                 if data_type == 'production' and max_hindex > 20:
                     target = 1
                 print("{},{},{},{},{},{},{}".format(pid, hindex, hindex2,
-                                           hindex3, hindex4, data_type, target), file=file)
+                                                    hindex3, hindex4,
+                                                    data_type, target), file=file)
 
 
 def main():
