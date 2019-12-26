@@ -37,7 +37,7 @@ def main():
     feature_columns = []
 
     # numeric cols
-    for header in ['hindex']:
+    for header in ['hindex', 'hindex2', 'hindex3', 'hindex4']:
         feature_columns.append(feature_column.numeric_column(header))
 
     # bucketized cols
