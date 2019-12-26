@@ -42,9 +42,9 @@ def main():
 
     # bucketized cols
     hindex = feature_column.numeric_column("hindex")
-    age_buckets = feature_column.bucketized_column(
+    hindex_buckets = feature_column.bucketized_column(
         hindex, boundaries=[10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
-    feature_columns.append(age_buckets)
+    feature_columns.append(hindex_buckets)
 
     # indicator cols
     data_type = feature_column.categorical_column_with_vocabulary_list(
