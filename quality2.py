@@ -34,15 +34,10 @@ def main():
 
     # We will use this batch to demonstrate several types of feature columns
 
-
-
-
-
-
     feature_columns = []
 
     # numeric cols
-    for header in ['pid', 'hindex']:
+    for header in ['hindex']:
         feature_columns.append(feature_column.numeric_column(header))
 
     # bucketized cols
@@ -59,7 +54,7 @@ def main():
 
     # embedding cols
     #data_type_embedding = feature_column.embedding_column(data_type, dimension=8)
-    #feature_columns.append(data_type_embedding)
+    # feature_columns.append(data_type_embedding)
 
     feature_layer = tf.keras.layers.DenseFeatures(feature_columns)
 
@@ -85,6 +80,7 @@ def main():
 
     _, accuracy = model.evaluate(test_ds)
     print("Accuracy", accuracy)
+
 
 def df_to_dataset(dataframe, shuffle=True, batch_size=32):
     """df to dataset"""
