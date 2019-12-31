@@ -1,6 +1,6 @@
-# ml-quality
+# scilearn
 
-Estimate data quality based on hindex and data type
+scilearn estimates scientific data quality based on hindex, data type and event number 
 
 
 
@@ -61,8 +61,7 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [Docker](http://www.docker.com) - Container
-* [Node](https://nodejs.org/) - Web framework
-* [npm](https://npmjs.org) - Dependency managment
+
 
 ## Contributing
 
