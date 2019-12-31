@@ -1,4 +1,4 @@
-# scilearn
+# SciLearn
 
 scilearn estimates scientific data quality based on hindex, data type and event number 
 
