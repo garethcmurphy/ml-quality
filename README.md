@@ -1,5 +1,7 @@
 # SciLearn
 
+
+<img src="./scilearn.png" width="200" >
 scilearn estimates scientific data quality based on hindex, data type and event number 
 
 
