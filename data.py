@@ -14,7 +14,7 @@ class Data():
         """generate data"""
         with open(self.file_name, "w") as file:
             print("pid,hindex,hindex2,hindex3,hindex4,data_type,target", file=file)
-            for _ in range(1, 1001):
+            for _ in range(1, 10001):
                 pid = random.randint(1e5, 9e5)
                 hindex = random.randint(0, 25)
                 hindex2 = random.randint(0, 25)

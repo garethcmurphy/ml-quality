@@ -1,14 +1,29 @@
-#!/usr/bin/env python3 
+from __future__ import absolute_import, division, print_function, unicode_literals
 import tensorflow as tf
+import numpy as np
 
 
-class SquareTest(tf.test.TestCase):
+class DenseLayerTest(tf.test.TestCase):
 
-    def testSquare(self):
-        with self.test_session():
-            x = tf.square([2, 3])
-            self.assertAllEqual(x.eval(), [4, 9])
+    def setUp(self):
+        super(DenseLayerTest, self).setUp()
+        self.my_dense = tf.keras.layers.Dense(2)
+        self.my_dense.build((2, 2))
+
+    def testDenseLayerOutput(self):
+        self.my_dense.set_weights([
+            np.array([[1, 0],
+                      [2, 3]]),
+            np.array([0.5, 0])
+        ])
+        input_x = np.array([[1, 2],
+                            [2, 3]])
+        output = self.my_dense(input_x)
+        print(output)
+        expected_output = np.array([[5.5, 6.],
+                                    [8.5, 9]])
+
+        self.assertAllEqual(expected_output, output)
 
 
-if __name__ == '__main__':
-    tf.test.main()
+tf.test.main()

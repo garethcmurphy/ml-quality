@@ -4,5 +4,5 @@
         "titleBar.activeBackground": "#80151D",
         "titleBar.activeForeground": "#FEFBFB"
     },
-    "python.pythonPath": "/Users/garethmurphy/.local/share/virtualenvs/ml-quality-JxtPQa67/bin/python"
+    "python.pythonPath": "/usr/local/bin/python3"
 }
